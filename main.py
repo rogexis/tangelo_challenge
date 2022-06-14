@@ -31,8 +31,13 @@ for ct in countries:
     newData['Region'] = rslt['region']
     newData['Country name'] = rslt['name']['common']
     newData['Language'] = EncryptedData
-    newData['Time (ms)'] = round((time.time()-st)*1000, 2)
+
     dataFrame.appendRow(newData)
+    dataFrame.ms.append(round((time.time()-st)*1000, 2))
+
+
+#Agregamos la columna del tiempo que se tardó en formar la fila
+dataFrame.df['Time (ms)'] = dataFrame.ms
 
 # Mostramos por consola Info Relevante del DataFrame
 dataFrame.showStats()
